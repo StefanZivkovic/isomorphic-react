@@ -1,1 +1,1 @@
-console.info("asdasd");
+console.info("react is cool");
