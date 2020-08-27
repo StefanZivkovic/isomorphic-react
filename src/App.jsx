@@ -1,12 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
 import QuestionList from "./components/QuestionList";
+import { Route, Link } from "react-router-dom";
+import QuestionDetail from "./components/QuestionDetail";
 
-const AppDisplay = ({ test }) => (
+const AppDisplay = () => (
   <div>
-    <h1>Isomorphic React {test}</h1>
+    <h1>
+      <Link to={"/"}>Isomorphic React</Link>
+    </h1>
     <div>
-      <QuestionList />
+      <Route exact path="/" render={() => <QuestionList />} />
+      <Route
+        exact
+        path="/questions/:id"
+        render={({ match }) => <QuestionDetail question_id={match.params.id} />}
+      />
     </div>
   </div>
 );
